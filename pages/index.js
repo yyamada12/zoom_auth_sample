@@ -6,8 +6,8 @@ export default function Home() {
     process.env.NEXT_PUBLIC_CLIENT_ID
   );
   zoom_auth_url.searchParams.set(
-    "redirect_url",
-    process.env.NEXT_PUBLIC_REDIRECT_URL
+    "redirect_uri",
+    process.env.NEXT_PUBLIC_REDIRECT_URI
   );
   return <a href={zoom_auth_url}>zoom 連携</a>;
 }
