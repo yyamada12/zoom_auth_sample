@@ -1,7 +1,13 @@
 export default function Home() {
-  return (
-    <a href="https://zoom.us/oauth/authorize?response_type=code&client_id=xxxxxxx&redirect_uri=https://xxxxxxx">
-      zoom 連携
-    </a>
+  const zoom_auth_url = new URL("https://zoom.us/oauth/authorize");
+  zoom_auth_url.searchParams.set("response_type", "code");
+  zoom_auth_url.searchParams.set(
+    "client_id",
+    process.env.NEXT_PUBLIC_CLIENT_ID
   );
+  zoom_auth_url.searchParams.set(
+    "redirect_url",
+    process.env.NEXT_PUBLIC_REDIRECT_URL
+  );
+  return <a href={zoom_auth_url}>zoom 連携</a>;
 }
